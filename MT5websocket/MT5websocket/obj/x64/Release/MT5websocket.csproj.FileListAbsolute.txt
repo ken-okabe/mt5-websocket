@@ -1,0 +1,10 @@
+C:\cygwin64\home\user00\mt5-websocket\MT5websocket\MT5websocket\bin\x64\Release\MT5websocket.dll.config
+C:\cygwin64\home\user00\mt5-websocket\MT5websocket\MT5websocket\bin\x64\Release\MT5websocket.dll
+C:\cygwin64\home\user00\mt5-websocket\MT5websocket\MT5websocket\bin\x64\Release\MT5websocket.pdb
+C:\cygwin64\home\user00\mt5-websocket\MT5websocket\MT5websocket\bin\x64\Release\WebSocket4Net.dll
+C:\cygwin64\home\user00\fts\MetaTrader 5 - Alpari\MT5websocket.dll.config
+C:\cygwin64\home\user00\fts\MetaTrader 5 - Alpari\MT5websocket.dll
+C:\cygwin64\home\user00\fts\MetaTrader 5 - Alpari\MT5websocket.pdb
+C:\cygwin64\home\user00\mt5-websocket\MT5websocket\MT5websocket\obj\x64\Release\MT5websocket.csprojResolveAssemblyReference.cache
+C:\cygwin64\home\user00\mt5-websocket\MT5websocket\MT5websocket\obj\x64\Release\MT5websocket.dll
+C:\cygwin64\home\user00\mt5-websocket\MT5websocket\MT5websocket\obj\x64\Release\MT5websocket.pdb

@@ -1,0 +1,2 @@
+C:\Users\user00\Desktop\MT5websocket\MT5websocket\bin\Debug\MT5websocket.exe.config
+C:\cygwin64\home\user00\mt5-websocket\MT5websocket\MT5websocket\bin\Debug\MT5websocket.exe.config

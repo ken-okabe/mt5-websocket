@@ -1,0 +1,1 @@
+C:\cygwin64\home\user00\mt5-websocket\MT5websocket\MT5websocket\bin\Release\MT5websocket.exe.config
