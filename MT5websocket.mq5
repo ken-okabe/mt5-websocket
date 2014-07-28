@@ -1,8 +1,8 @@
 
 #import "MT5websocket.dll"   
-    void onDLL (string pair,string period); 
-    void onTick (double bid, double ask);  
-    void onBar (int time, double open, double high, double low, double close); 
+    void onDLL (); 
+    void onTick (string pair,string period, double bid, double ask);  
+    void onBar (string pair,string period, int time, double open, double high, double low, double close); 
 #import
 //+------------------------------------------------------------------+
 //| Script program start function                                    |
@@ -145,10 +145,14 @@ CisNewBar current_chart; // instance of the CisNewBar class: current chart
 double bid0;
 double ask0;
 
+string pair;
+string period;
+
 void OnInit()
   {
 //---
-      string period;
+     pair = Symbol();
+     
       if(Period() == PERIOD_MN1)
          period = "mTick";
       if(Period() == PERIOD_W1)
@@ -159,15 +163,17 @@ void OnInit()
          period = "m120"; 
       if(Period() == PERIOD_M30)
          period = "m30";
+      if(Period() == PERIOD_M15)
+         period = "m15";
       if(Period() == PERIOD_M5)
          period = "m5"; 
       if(Period() == PERIOD_M1)
          period = "m1";    
          
-     onDLL(Symbol(), period);
+      onDLL();
      
-     Print(Symbol());   
-     Print(Period());
+     Print(pair);   
+     Print(period);
 
      Sleep(3000);  
      OnDLL1();
@@ -197,17 +203,19 @@ void OnTick()
       
       if((tick.bid != bid0)||(tick.ask != ask0))
       {
-         onTick(tick.bid, tick.ask); 
+         onTick(pair, period, tick.bid, tick.ask); 
          bid0 = tick.bid;
          ask0 = tick.ask;
       }
       
     } 
+    else
+    {
      
    int period_seconds=PeriodSeconds(_Period);                     // Number of seconds in current chart period
    datetime new_time=TimeCurrent()/period_seconds*period_seconds; // Time of bar opening on current chart
    if(current_chart.isNewBar(new_time)) OnNewBar();               // When new bar appears - launch the NewBar event handler
-                            
+    }                     
   }
 //+------------------------------------------------------------------+
 //| ChartEvent function                                              |
@@ -272,9 +280,11 @@ void OnNewBar()
  Print( iLow(Symbol(),Period(),1));
  Print( iClose(Symbol(),Period(),1));
    
- 
   
- onBar (TimeCurrent()*1,
+ onBar (
+  pair,
+  period,
+  TimeCurrent()*1,
   iOpen(Symbol(),Period(),1), 
   iHigh(Symbol(),Period(),1), 
   iLow(Symbol(),Period(),1),  
@@ -319,11 +329,10 @@ void OnDLL1()
   {  Print( Time[i]);
 
      Time1[i] = Time[i] *1;     
-     onBar (Time1[i], Open1[i], High1[i], Low1[i], Close1[i]);
+     onBar (pair, period, Time1[i], Open1[i], High1[i], Low1[i], Close1[i]);
   } 
 
   Print("history done"); 
   
-  
-  //onDLL1(timeCount,/*Time1,*/ Open1,High1,Low1,Close1);
+    
 }
